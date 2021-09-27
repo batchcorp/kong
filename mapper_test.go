@@ -528,9 +528,9 @@ func TestPBEnumMapper(t *testing.T) {
 
 	// Enum should exist
 	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
-	kCtx, err := k.Parse([]string{"--run-mode=MODE_FOO"})
+	ctx, err := k.Parse([]string{"--run-mode=MODE_FOO"})
 	require.NoError(t, err)
-	require.NotNil(t, kCtx)
+	require.NotNil(t, ctx)
 
 	// Enum should not exist
 	_, shouldErr := k.Parse([]string{"--run-mode=MODE_BAX"})
@@ -545,9 +545,9 @@ func TestPBEnumMapperLowercase(t *testing.T) {
 
 	// Enum should exist
 	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
-	kCtx, err := k.Parse([]string{"--run-mode=mode_foo"})
+	ctx, err := k.Parse([]string{"--run-mode=mode_foo"})
 	require.NoError(t, err)
-	require.NotNil(t, kCtx)
+	require.NotNil(t, ctx)
 
 	// Enum should not exist
 	_, shouldErr := k.Parse([]string{"--run-mode=MODE_FOO"})
@@ -562,13 +562,12 @@ func TestPBEnumStripPrefix(t *testing.T) {
 
 	// Enum should exist
 	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
-	kCtx, err := k.Parse([]string{"--run-mode=foo"})
+	ctx, err := k.Parse([]string{"--run-mode=foo"})
 	require.NoError(t, err)
-	require.NotNil(t, kCtx)
+	require.NotNil(t, ctx)
 
 	// Enum should not exist
 	_, shouldErr := k.Parse([]string{"--run-mode=mode_foo"})
 	require.Error(t, shouldErr)
 	require.Contains(t, shouldErr.Error(), "'mode_foo' not available in proto enum map")
-
 }
