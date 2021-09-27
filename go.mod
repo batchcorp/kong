@@ -1,4 +1,4 @@
-module github.com/alecthomas/kong
+module github.com/batchcorp/kong
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

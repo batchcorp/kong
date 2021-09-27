@@ -6,6 +6,9 @@
 
 <!-- TOC depthfrom:2 updateonsave:true withlinks:true -->
 
+**NOTE**: This is a fork of [alecthomas/kong](https://github.com/alecthomas/kong)
+that includes protobuf-related functionality.
+
 - [Introduction](#introduction)
 - [Help](#help)
     - [Help as a user of a Kong application](#help-as-a-user-of-a-kong-application)
@@ -453,6 +456,14 @@ Tag                    | Description
 `set:"K=V"`            | Set a variable for expansion by child elements. Multiples can occur.
 `embed:""`             | If present, this field's children will be embedded in the parent. Useful for composition.
 `passthrough:""`       | If present, this positional argument stops flag parsing when encountered, as if `--` was processed before. Useful for external command wrappers, like `exec`.
+
+### Protobuf-specific settings
+
+Tag                    | Description
+-----------------------| -------------------------------------------
+`type:"pbenum"`        | If present, `kong` will treat the field as if it was generated via protoc. `kong` will attempt to automatically read all of the available enums and validate that the input is a valid option.
+`pbenum_strip_prefix:"X"`  | When used with `type:"pbenum"`, `kong` will strip the prefix from the enum names before exposing them in the CLI.
+`pbenum_lowercase`     | When used with `type:"pbenum"`, `kong` will lowercase the enum names before exposing them in the CLI.
 `-`                    | Ignore the field. Useful for adding non-CLI fields to a configuration struct. e.g `` `kong:"-"` ``
 
 ## Plugins
