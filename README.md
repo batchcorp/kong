@@ -58,7 +58,7 @@ Can be represented by the following command-line structure:
 ```go
 package main
 
-import "github.com/alecthomas/kong"
+import "github.com/batchcorp/kong"
 
 var CLI struct {
   Rm struct {
@@ -151,7 +151,7 @@ eg.
 ```go
 package main
 
-import "github.com/alecthomas/kong"
+import "github.com/batchcorp/kong"
 
 var CLI struct {
   Rm struct {

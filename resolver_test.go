@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 type envMap map[string]string

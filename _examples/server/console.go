@@ -4,7 +4,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 // Ensure the grammar compiles.

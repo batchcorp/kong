@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 var cli struct {

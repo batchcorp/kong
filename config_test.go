@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 func TestMultipleConfigLoading(t *testing.T) {

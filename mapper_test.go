@@ -15,7 +15,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 func TestValueMapper(t *testing.T) {
@@ -527,7 +527,7 @@ func TestPBEnumMapper(t *testing.T) {
 	}
 
 	// Enum should exist
-	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
+	k := mustNew(t, &cli, kong.IgnoreFields(".*XXX_"))
 	ctx, err := k.Parse([]string{"--run-mode=MODE_FOO"})
 	require.NoError(t, err)
 	require.NotNil(t, ctx)
@@ -544,7 +544,7 @@ func TestPBEnumMapperLowercase(t *testing.T) {
 	}
 
 	// Enum should exist
-	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
+	k := mustNew(t, &cli, kong.IgnoreFields(".*XXX_"))
 	ctx, err := k.Parse([]string{"--run-mode=mode_foo"})
 	require.NoError(t, err)
 	require.NotNil(t, ctx)
@@ -561,7 +561,7 @@ func TestPBEnumStripPrefix(t *testing.T) {
 	}
 
 	// Enum should exist
-	k := mustNew(t, &cli, kong.IgnoreFieldsRegex(".*XXX_"))
+	k := mustNew(t, &cli, kong.IgnoreFields(".*XXX_"))
 	ctx, err := k.Parse([]string{"--run-mode=foo"})
 	require.NoError(t, err)
 	require.NotNil(t, ctx)

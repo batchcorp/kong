@@ -15,7 +15,7 @@ import (
 	"golang.org/x/crypto/ssh/terminal"
 
 	"github.com/alecthomas/colour"
-	"github.com/alecthomas/kong"
+	"github.com/batchcorp/kong"
 )
 
 type context struct {
